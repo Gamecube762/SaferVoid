@@ -1,0 +1,37 @@
+Settings:
+   #Settings for Teleporting on void.
+   #----<worldName>:<true/false>  If its false, then it teleports them to the world spawn defined by the world
+   #--------w: <world>   world to teleport to
+   #--------x: <number>  X cord to teleport to
+   #--------y: <number>  Y cord to teleport to
+   #--------z: <number>  Z cord to teleport to
+   VoidTeleport:
+        VoidLevel: -20
+        world:
+            w:world
+            X:0
+            Y:70
+            Z:0
+        world_nether:
+            w:world_nether
+            X:0
+            Y:70
+            Z:0
+        world_the_end:
+            w:world
+            X:0
+            Y:70
+            Z:0
+   #Settings for VoidBouncing
+   VoidBounce:
+        VoidLevel: 0
+   #Settings for VoidFly (automatically turns on fly when reaching the void (works in any gamemode))
+   #----Timer: <seconds> number in seconds before the flight automatically turns off, will turn on if they fall in again (dousnt turn off if they are in creative mode)
+   VoidFly:
+        VoidLevel: 0
+        Timer: 60
+   #Settings for VoidBouncing
+   #----BlockID: <number>   block id for putting a block when fixing the hole
+   VoidFix:
+        VoidLevel: -40
+        BlockID: 7

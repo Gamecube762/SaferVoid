@@ -1,0 +1,18 @@
+name: SaferVoid
+main: com.github.Gamecube762.Bukkit.SaferVoid.Main
+author: Gamecube762
+version: 0.1
+prefix: SV
+permissions:
+   sv.void.bounce:
+      description: Bounce on the void, can be kicked for 'flying'
+      default: false
+   sv.void.teleport:
+      description: Gets teleported when at the teleport level
+      default: false
+   sv.void.fly:
+      description: Fly turns on when they reach the void level
+      default: false
+   sv.void.fix:
+      description: Teleport the player and place a block to fix the hole
+      default: false
