@@ -16,8 +16,8 @@ public class Main extends JavaPlugin{
 	public void onEnable() {
 		this.log = this.getLogger();
 		this.config = this.getConfig();
-		this.saveDefaultConfig();
 		this.config.options().copyDefaults(true);
+		this.saveDefaultConfig();
 		
 		
 		getServer().getPluginManager().registerEvents(new PlayerEventHandler(this), this);

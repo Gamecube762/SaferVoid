@@ -24,6 +24,7 @@ public class VoidFlight extends BukkitRunnable{
     	if (this.pw==this.w & p.getGameMode()!=GameMode.CREATIVE){
     		p.setFlying(false);
     		p.setAllowFlight(false);
+    		p.setFallDistance(0);
     	}
     }
     

@@ -9,8 +9,8 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.player.PlayerChangedWorldEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
+import org.bukkit.event.player.PlayerToggleFlightEvent;
 import org.bukkit.plugin.Plugin;
 
 import com.github.Gamecube762.Bukkit.SaferVoid.Forces;
@@ -43,23 +43,6 @@ public class PlayerEventHandler implements Listener {
 		}
 			
 		if ( p.hasPermission("sv.void.teleport") ) {
-			if (pLoc.getY() <= this.config.getDouble(pathPrefix+"Teleport"+VoidLevel) ) {
-				boolean a = this.config.getBoolean( pathPrefix + "Teleport." + p.getWorld().getName() );
-				if (a) {
-					World w = Bukkit.getWorld( this.config.getString(pathPrefix + "Teleport." + p.getWorld().getName() + ".w") );
-					if (w==null) {a=false;p.sendMessage("false");}
-					else {
-						double x = this.config.getDouble(pathPrefix + "Teleport." + p.getWorld().getName() + "x");
-						double y = this.config.getDouble(pathPrefix + "Teleport." + p.getWorld().getName() + "y");
-						double z = this.config.getDouble(pathPrefix + "Teleport." + p.getWorld().getName() + "z");
-						p.setFallDistance(0);
-						p.teleport(new Location(w, x, y, z));
-					}
-				} else {
-					p.setFallDistance(0);
-					p.teleport(p.getWorld().getSpawnLocation());
-				}
-			}
 		}
 		
 		if (p.hasPermission("sv.void.fix")) {
@@ -73,12 +56,14 @@ public class PlayerEventHandler implements Listener {
 		
 		if (p.hasPermission("sv.void.fly")) {
 			if (pLoc.getY() <= this.config.getDouble(pathPrefix+"Fly"+VoidLevel) ) {
-				if(!p.getAllowFlight()){
-					p.setAllowFlight(true);
-					p.setFlying(true);
-					if(p.getGameMode()!=GameMode.CREATIVE){ //auto flight off timer to prevent flight abuse (disabled if in creative mode)
-						VoidFlight.CreateRunable(plugin, p, p.getWorld(), this.config.getInt(pathPrefix+"Fly.Timer")*20);
-					}
+				int time = this.config.getInt(pathPrefix+"Fly.Timer");
+				if (time < 0 & time != -1) {time *= -1; this.config.set(pathPrefix+"Fly.Timer", time);}//make time positive unless -1(no shut-off timer)
+
+				if (!p.getAllowFlight()) p.setAllowFlight(true);
+				if (!p.isFlying()) p.setFlying(true);
+				
+				if(!p.isFlying()|p.getGameMode()!=GameMode.CREATIVE|time!=-1){ //auto flight off timer to prevent flight abuse (disabled if in creative mode)
+					VoidFlight.CreateRunable(plugin, p, p.getWorld(), time*20);
 				}
 			}
 		}
@@ -90,8 +75,8 @@ public class PlayerEventHandler implements Listener {
 	
 	
 	@EventHandler
-	public void PlayerSwapWorld(PlayerChangedWorldEvent e) {	
-		//add code here
+	public void PlayerFlightChange(PlayerToggleFlightEvent e) {	
+		//add code here to prevent flight abuse
 	}
 	
 }

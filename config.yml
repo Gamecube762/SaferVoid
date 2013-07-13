@@ -1,19 +1,19 @@
 Settings:
    #Settings for Teleporting on void.
-   #----<worldName>:<true/false>  If its false, then it teleports them to the world spawn defined by the world
-   #--------w: <world>   world to teleport to
-   #--------x: <number>  X cord to teleport to
-   #--------y: <number>  Y cord to teleport to
-   #--------z: <number>  Z cord to teleport to
+   #----<worldName>:     name of world that this happens in
+   #--------w: <world>   world to teleport to 
+   #--------x: <number>  X cord to teleport to 
+   #--------y: <number>  Y cord to teleport to 
+   #--------z: <number>  Z cord to teleport to 
    VoidTeleport:
-        VoidLevel: -20
+        VoidLevel: -40
         world:
             w:world
             X:0
             Y:70
             Z:0
         world_nether:
-            w:world_nether
+            w:world
             X:0
             Y:70
             Z:0
@@ -33,5 +33,5 @@ Settings:
    #Settings for VoidBouncing
    #----BlockID: <number>   block id for putting a block when fixing the hole
    VoidFix:
-        VoidLevel: -40
+        VoidLevel: -30
         BlockID: 7
