@@ -1,4 +1,4 @@
-package com.github.Gamecube762.Bukkit.SaferVoid;
+package com.github.Gamecube762.SaferVoid;
 
 import org.bukkit.entity.Player;
 import org.bukkit.util.Vector;

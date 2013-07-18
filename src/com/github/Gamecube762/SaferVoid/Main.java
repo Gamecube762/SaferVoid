@@ -1,11 +1,11 @@
-package com.github.Gamecube762.Bukkit.SaferVoid;
+package com.github.Gamecube762.SaferVoid;
 
 import java.util.logging.Logger;
 
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import com.github.Gamecube762.Bukkit.SaferVoid.Handlers.PlayerEventHandler;
+import com.github.Gamecube762.SaferVoid.Handlers.PlayerEventHandler;
 
 public class Main extends JavaPlugin{
 	

@@ -1,4 +1,4 @@
-package com.github.Gamecube762.Bukkit.SaferVoid.Handlers;
+package com.github.Gamecube762.SaferVoid.Handlers;
 
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
@@ -13,8 +13,8 @@ import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.event.player.PlayerToggleFlightEvent;
 import org.bukkit.plugin.Plugin;
 
-import com.github.Gamecube762.Bukkit.SaferVoid.Forces;
-import com.github.Gamecube762.Bukkit.SaferVoid.Runnables.VoidFlight;
+import com.github.Gamecube762.SaferVoid.Forces;
+import com.github.Gamecube762.SaferVoid.Runnables.VoidFlight;
 
 public class PlayerEventHandler implements Listener {
 	

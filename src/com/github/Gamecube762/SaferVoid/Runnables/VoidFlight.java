@@ -1,4 +1,4 @@
-package com.github.Gamecube762.Bukkit.SaferVoid.Runnables;
+package com.github.Gamecube762.SaferVoid.Runnables;
 
 import org.bukkit.GameMode;
 import org.bukkit.World;

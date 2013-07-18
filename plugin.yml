@@ -1,5 +1,5 @@
 name: SaferVoid
-main: com.github.Gamecube762.Bukkit.SaferVoid.Main
+main: com.github.Gamecube762.SaferVoid.Main
 author: Gamecube762
 version: 0.1
 prefix: SV
