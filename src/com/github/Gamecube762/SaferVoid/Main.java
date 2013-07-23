@@ -11,13 +11,13 @@ public class Main extends JavaPlugin{
 	
 	public Logger log;
 	public FileConfiguration config;
+	public ConfigManager CM;
 
 	@Override
 	public void onEnable() {
 		this.log = this.getLogger();
 		this.config = this.getConfig();
-		this.config.options().copyDefaults(true);
-		this.saveDefaultConfig();
+		this.CM = new ConfigManager(this);
 		
 		
 		getServer().getPluginManager().registerEvents(new PlayerEventHandler(this), this);
@@ -27,5 +27,7 @@ public class Main extends JavaPlugin{
 	
 	@Override
 	public void onDisable() { }
+	
+	public Main getThis() {return this;}
 
 }
